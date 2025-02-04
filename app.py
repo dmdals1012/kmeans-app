@@ -7,6 +7,14 @@ from pandas.api.types import is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
+import platform
+
+if platform.system() == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+elif platform.system() == 'Linux':
+    plt.rcParams['font.family'] = 'NanumGothic'
+
+plt.rcParams['axes.unicode_minus'] = False
 
 
 
