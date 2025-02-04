@@ -89,6 +89,9 @@ def main():
 
         fig1 = plt.figure()
         plt.plot( range(1, max_k+1) ,  wcss )
+        plt.title('The Elbow Method')
+        plt.xlabel('# of Clusters')
+        plt.ylabel('WCSS')
         st.pyplot( fig1 ) 
         
     
