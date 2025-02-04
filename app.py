@@ -7,20 +7,26 @@ from pandas.api.types import is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
-import platform
+import os
+import matplotlib.font_manager as fm
 
-if platform.system() == 'Windows':
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-elif platform.system() == 'Linux':
-    plt.rcParams['font.family'] = 'NanumGothic'
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/custom_fonts']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
 
-plt.rcParams['axes.unicode_minus'] = False
 
 
 
 
 
 def main():
+    fontRegistered()
+    plt.rc('font', family='NanumGothic')
+
     st.title('K-Means Clustering App')
 
     # 1. csv 파일 업로드
