@@ -100,7 +100,7 @@ def main():
             kmeans = KMeans(n_clusters= k, random_state= 4)
             kmeans.fit(df_new)
             wcss.append( kmeans.inertia_ )
-
+        print(wcss[0])
         fig1 = plt.figure()
         plt.plot( range(1, max_k+1) ,  wcss )
         plt.title('The Elbow Method')
